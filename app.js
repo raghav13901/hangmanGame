@@ -13,6 +13,18 @@ var i = 0,
   j = 0,
   w = 0;
 var s = "";
+function startM(){
+  for (i = 0; i < movies[randNo].length; i++) {
+  if (movies[randNo][i] == " ") {
+    s += "<span class='space'>//</span>";
+    span++;
+  } else {
+    s += "<span> </span>";
+  }
+}
+$('.ans').html(s);
+$('.quest').html(desc[randNo]);
+}
 function check(){
   var x = document.getElementById("myText").value;
   function allLetter() {
