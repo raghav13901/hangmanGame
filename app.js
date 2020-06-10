@@ -6,16 +6,63 @@ var alpha = [];
 var play = true;
 var wrongAlpha = [];
 var rightAlpha = [];
+var wrongAlphaM = [];
+var rightAlphaM = [];
+var alphaM = [];
 var i = 0,
   j = 0,
   w = 0;
 var s = "";
-z: {
+function check(){
+  var x = document.getElementById("myText").value;
+  function allLetter() {
+    var letters = /^[Q,W,E,R,T,Y,U,I,O,P,A,S,D,F,G,H,J,K,L,Z,X,C,V,B,N,M,q,w,e,r,t,y,u,i,o,p,a,s,d,f,g,h,j,k,l,z,x,c,v,b,n,m]+/;
+    var specialChar = ["Tab", "CapsLock", "Shift", "Control", "Meta", "Alt", "Enter"];
+    if (x.match(letters) && specialChar.indexOf(x) == -1 && x != ",") {
+      return true;
+    } else {
+      alert("Invalid Character " + x + " Enter!!!");
+      return false;
+    }
+  }
+  if ((play == true) && allLetter()) {
+    if ((alphaM.indexOf(x.toLowerCase()) === -1) && (alphaM.indexOf(x.toUpperCase()) === -1)) {
 
-};
+      alphaM.push(x);
+      if (((movies[randNo].indexOf(x) != -1) || (movies[randNo].toUpperCase().indexOf(x) != -1)) && rightAlphaM.indexOf(x) == -1) {
+        rightAlphaM.push(x.toUpperCase());
+        for (i = 0; i < movies[randNo].length; i++) {
+          if (x.toLowerCase() == movies[randNo][i]) {
+            $(".ans span")[i].innerHTML = (x).toUpperCase();
+            span++;
+          }
+        }
+        if (span === movies[randNo].length) {
+          $(".quest").html("You Won!!! <br> Refresh to play again");
+          play = false;
+        }
+      } else {
+        if (wrongAlphaM.indexOf(x) == -1) {
+          if (j == 6) {
+            $(".quest").html("You Lose <br> Refresh to play again <br> ANSWER: " + (movies[randNo]).toUpperCase());
+            $(".hangman span")[j].style.textDecoration = "line-through";
+            play = false;
+          } else {
+            $(".hangman span")[j].style.textDecoration = "line-through";
+            j += 1;
+          }
+          wrongAlphaM.push(x);
+          console.log(wrongAlphaM);
+        }
+        $(".wrong").html("Wrong words: " + wrongAlphaM);
+      }
+    } else {
+      alert("Duplicate entry " + (x).toUpperCase() + " Enter!!!");
+    }
+  }
+}
 
 function start() {
-
 
   for (i = 0; i < movies[randNo].length; i++) {
     if (movies[randNo][i] == " ") {
@@ -27,10 +74,12 @@ function start() {
   }
   $('.ans').html(s);
   $('.quest').html(desc[randNo]);
+
   var l = document.addEventListener("keyup", function(event) {
     function allLetter() {
-      var letters = /^[A-Za-z]+$/;
-      if (event.key.match(letters)) {
+      var letters = /^[Q,W,E,R,T,Y,U,I,O,P,A,S,D,F,G,H,J,K,L,Z,X,C,V,B,N,M,q,w,e,r,t,y,u,i,o,p,a,s,d,f,g,h,j,k,l,z,x,c,v,b,n,m]+/;
+      var specialChar = ["Tab", "CapsLock", "Shift", "Control", "Meta", "Alt", "Enter"];
+      if (event.key.match(letters) && specialChar.indexOf(event.key) == -1 && event.key != ",") {
         return true;
       } else {
         alert("Invalid Character " + event.key + " Enter!!!");
@@ -63,7 +112,8 @@ function start() {
               $(".hangman span")[j].style.textDecoration = "line-through";
               j += 1;
             }
-            wrongAlpha.push((event.key).toUpperCase());
+            wrongAlpha.push((event.key));
+            console.log(wrongAlpha);
           }
           $(".wrong").html("Wrong words: " + wrongAlpha);
         }
@@ -71,7 +121,6 @@ function start() {
         alert("Duplicate entry " + (event.key).toUpperCase() + " Enter!!!");
       }
     }
-
   });
 
 }
