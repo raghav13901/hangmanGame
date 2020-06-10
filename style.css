@@ -41,6 +41,17 @@ body{
   color: #25CCF7;
   border: 2px solid #25CCF7;
 }
+.mobile{
+  display: none;
+}
+.mobileView input{
+  background-color:#25CCF7;
+  color: #3B3B98;
+  text-align: center;
+  border: 2px solid #3B3B98;
+  border-radius: 16px;
+
+}
 @media screen and (max-width:500px) {
   body{
     padding: 25% 2%;
@@ -55,6 +66,14 @@ body{
   }
   .ans span{
     width:35px;
-
+  }
+  .mobileView{
+    margin: auto 27%;
+    display: block;
+    width: 25%;
+    font-size: 100%;
+  }
+  .mobile{
+    display: block;
   }
 }
