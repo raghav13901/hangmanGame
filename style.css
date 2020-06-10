@@ -1,86 +1,43 @@
-*{
-  box-sizing: border-box;
-}
-body{
-  padding: 5%;
-  background-color:#25CCF7;
-  color: #3B3B98;
-  text-align: center;
-  line-height: 25px;
-}
-.hangman{
-  font-size:400%;
-  margin: 5% auto;
-}
-.hangman p {
-}
-.head , .quest,.ans{
-  font-size: 200%;
-  line-height: 40px;
-}
-.head{
-  margin: 2% auto 1%;
-}
-.quest{
-  margin: 5% auto 1%;
-}
-.wrong{
-  font-size: 150%;
-  margin: 2%;
-}
-.ans span{
-  display: inline-block;
-  width: 50px;
-  margin: 1%;
-  color: #3B3B98;
-  border: 2px solid #3B3B98;
-  border-radius: 8px;
-  text-align: center;
-  line-height: 200%;
-}
-.ans span.space{
-  background-color: #3B3B98;
-  color: #25CCF7;
-  border: 2px solid #25CCF7;
-}
-.mobile{
-  display: none;
-}
-.mobileView input{
-  background-color:#25CCF7;
-  color: #3B3B98;
-  text-align: center;
-  border: 2px solid #3B3B98;
-  border-radius: 16px;
-}
-button.mobile{
-  margin:2% auto; 
-}
-@media screen and (max-width:500px) {
-  body{
-    padding: 25% 2%;
-  }
-  .hangman{
-    font-size: 200%;
-    margin: 10%;
-  }
-  .wrong,.ans,.quest{
-    font-size: 100%;
-    margin: 5%;
-  }
-  .ans span{
-    width:35px;
-  }
-  .mobileView{
-    text-align:center;
-    display: block;
-    width: 100%;
-    font-size: 100%;
-  }
-  .mobile{
-    display: block;
-  }
-  .desk{
-    display: none;
-  }
-}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Hangman</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body onload="">
+    <div class="hangman">
+      <span class="H">H</span>
+      <span class="A">A</span>
+      <span class="N">N</span>
+      <span class="G">G</span>
+      <span class="M">M</span>
+      <span class="A">A</span>
+      <span class="N">N</span>
+    </div>
+
+    <p class="desk">Click start then press the letter you want<br>These movies doesn't have numbers as the part of their name</p>
+    <p class="mobile">Click Start then enter letter one-by-one<br>These movies doesn't have numbers as the part of their name</p>
+    <div class="mobileView mobile">
+        <label>Enter Character <input type="text" name="" id="myText" maxlength="1"></label>
+    </div>
+    <div class="">
+      <button type="button" name="button" onclick="check()" class="stBtn btn-lg btn-primary mobile">Submit</button>
+    </div>
+    <div class="wrong">
+        Wrong Words:
+    </div>
+    <div class="ans">
+        <button type="button" name="button" class="stBtn btn-lg btn-primary desk" onclick="start()">Start</button>
+        <button type="button" name="button" class="stBtn btn-lg btn-primary mobile" onclick="startM()">Start</button>
+    </div>
+    <div class="quest">
+
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="app.js" charset="utf-8"></script>
+  </body>
+</html>
