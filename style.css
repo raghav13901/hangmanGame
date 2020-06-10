@@ -8,12 +8,12 @@ body{
   text-align: center;
   line-height: 25px;
 }
-.hangman,.ans{
-  font-size:200%;
+.hangman{
+  font-size:400%;
   margin: 5% auto;
 }
-.head , .quest{
-  font-size: 150%;
+.head , .quest,.ans{
+  font-size: 200%;
   line-height: 40px;
 }
 .head{
@@ -21,6 +21,10 @@ body{
 }
 .quest{
   margin: 5% auto 1%;
+}
+.wrong{
+  font-size: 150%;
+  margin: 2%;
 }
 .ans span{
   display: inline-block;
@@ -36,4 +40,21 @@ body{
   background-color: #3B3B98;
   color: #25CCF7;
   border: 2px solid #25CCF7;
+}
+@media screen and (max-width:500px) {
+  body{
+    padding: 25% 2%;
+  }
+  .hangman{
+    font-size: 200%;
+    margin: 10%;
+  }
+  .wrong,.ans,.quest{
+    font-size: 100%;
+    margin: 5%;
+  }
+  .ans span{
+    width:35px;
+
+  }
 }
