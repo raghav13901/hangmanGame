@@ -1,0 +1,39 @@
+*{
+  box-sizing: border-box;
+}
+body{
+  padding: 5%;
+  background-color:#25CCF7;
+  color: #3B3B98;
+  text-align: center;
+  line-height: 25px;
+}
+.hangman,.ans{
+  font-size:200%;
+  margin: 5% auto;
+}
+.head , .quest{
+  font-size: 150%;
+  line-height: 40px;
+}
+.head{
+  margin: 2% auto 1%;
+}
+.quest{
+  margin: 5% auto 1%;
+}
+.ans span{
+  display: inline-block;
+  width: 50px;
+  margin: 1%;
+  color: #3B3B98;
+  border: 2px solid #3B3B98;
+  border-radius: 8px;
+  text-align: center;
+  line-height: 200%;
+}
+.ans span.space{
+  background-color: #3B3B98;
+  color: #25CCF7;
+  border: 2px solid #25CCF7;
+}
