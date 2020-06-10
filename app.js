@@ -28,6 +28,7 @@ function start() {
   $('.ans').html(s);
   $('.quest').html(desc[randNo]);
   var l = document.addEventListener("keypress", function(event) {
+    event.key.toLowerCase();
     function allLetter() {
       var letters = /^[A-Za-z]+$/;
       if (event.key.match(letters)) {
