@@ -29,7 +29,7 @@ function check(){
   var x = document.getElementById("myText").value;
   function allLetter() {
     var letters = /^[Q,W,E,R,T,Y,U,I,O,P,A,S,D,F,G,H,J,K,L,Z,X,C,V,B,N,M,q,w,e,r,t,y,u,i,o,p,a,s,d,f,g,h,j,k,l,z,x,c,v,b,n,m]+/;
-    var specialChar = ["Tab", "CapsLock", "Shift", "Control", "Meta", "Alt", "Enter"];
+    var specialChar = ["Tab", "CapsLock", "Shift", "Control", "Meta", "Alt", "Enter","Backspace"];
     if (x.match(letters) && specialChar.indexOf(x) == -1 && x != ",") {
       return true;
     } else {
@@ -54,7 +54,7 @@ function check(){
           play = false;
         }
       } else {
-        if (wrongAlphaM.indexOf(x) == -1) {
+        if (wrongAlphaM.indexOf(x) == -1 && !(specialChar(event.key) != -1) {
           if (j == 6) {
             $(".quest").html("You Lose <br> Refresh to play again <br> ANSWER: " + (movies[randNo]).toUpperCase());
             $(".hangman span")[j].style.textDecoration = "line-through";
@@ -64,9 +64,10 @@ function check(){
             j += 1;
           }
           wrongAlphaM.push(x);
-          console.log(wrongAlphaM);
+          alert(wrongAlphaM);
         }
         $(".wrong").html("Wrong words: " + wrongAlphaM);
+        alert(wrongAlphaM);
       }
     } else {
       alert("Duplicate entry " + (x).toUpperCase() + " Enter!!!");
@@ -90,7 +91,7 @@ function start() {
   var l = document.addEventListener("keyup", function(event) {
     function allLetter() {
       var letters = /^[Q,W,E,R,T,Y,U,I,O,P,A,S,D,F,G,H,J,K,L,Z,X,C,V,B,N,M,q,w,e,r,t,y,u,i,o,p,a,s,d,f,g,h,j,k,l,z,x,c,v,b,n,m]+/;
-      var specialChar = ["Tab", "CapsLock", "Shift", "Control", "Meta", "Alt", "Enter"];
+      var specialChar = ["Tab", "CapsLock", "Shift", "Control", "Meta", "Alt", "Enter","Backspace"];
       if (event.key.match(letters) && specialChar.indexOf(event.key) == -1 && event.key != ",") {
         return true;
       } else {
@@ -115,7 +116,7 @@ function start() {
             play = false;
           }
         } else {
-          if (wrongAlpha.indexOf(event.key) == -1) {
+          if (wrongAlpha.indexOf(event.key) == -1 && !(specialChar(event.key) != -1)) {
             if (j == 6) {
               $(".quest").html("You Lose <br> Refresh to play again <br> ANSWER: " + (movies[randNo]).toUpperCase());
               $(".hangman span")[j].style.textDecoration = "line-through";
