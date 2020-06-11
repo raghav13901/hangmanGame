@@ -54,7 +54,7 @@ function check(){
           play = false;
         }
       } else {
-        if (wrongAlphaM.indexOf(x) == -1 && !(specialChar(event.key) != -1) {
+        if (wrongAlphaM.indexOf(x) == -1 && !(specialChar(event.key) != -1)) {
           if (j == 6) {
             $(".quest").html("You Lose <br> Refresh to play again <br> ANSWER: " + (movies[randNo]).toUpperCase());
             $(".hangman span")[j].style.textDecoration = "line-through";
