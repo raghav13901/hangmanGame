@@ -65,7 +65,6 @@ function check(){
             j += 1;
           }
           wrongAlphaM.push(x);
-          alert(wrongAlphaM);
         }
         $(".wrong").html("Wrong words: " + wrongAlphaM);
       }
@@ -75,6 +74,7 @@ function check(){
   }
 }
 }
+if(screen.width >= 750px){
 function start() {
 
   for (i = 0; i < movies[randNo].length; i++) {
@@ -136,4 +136,5 @@ function start() {
   }
   });
 
+}
 }
