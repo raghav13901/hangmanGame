@@ -37,7 +37,7 @@ function check(){
       return false;
     }
   }
-  if(specialChar.indexOf(event.key)==-1){
+  if(specialChar.indexOf(x)== -1){
   if ((play == true) && allLetter()) {
     if ((alphaM.indexOf(x.toLowerCase()) === -1) && (alphaM.indexOf(x.toUpperCase()) === -1)) {
 
