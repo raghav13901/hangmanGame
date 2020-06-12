@@ -74,7 +74,7 @@ function check(){
   }
 }
 }
-if(screen.width >= 750px){
+if(screen.width >= 750){
 function start() {
 
   for (i = 0; i < movies[randNo].length; i++) {
